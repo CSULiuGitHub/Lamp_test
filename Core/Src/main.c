@@ -105,13 +105,13 @@ int main(void)
 			count++;
 		}
 		HAL_Delay (1000);
-//		count=1;
-//		 		while(count <=8 )
-//		{
-//			RGB_LED_Write_24Bits(0x00,0X00,0X00);
-//			count++;
-//		}
-//		HAL_Delay (1000);
+		count=1;
+		 		while(count <=8 )
+		{
+			RGB_LED_Write_24Bits(0x00,0X00,0X00);
+			count++;
+		}
+		HAL_Delay (1000);
 //		
   }
   /* USER CODE END 3 */
