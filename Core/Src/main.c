@@ -56,6 +56,8 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int8_t count=1;
+int8_t look=0;
+uint8_t i=1;
 /* USER CODE END 0 */
 
 /**
@@ -88,7 +90,12 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+		count=1;
+		 		while(count <=8 )
+		{
+			RGB_LED_Write_24Bits(0x00,0X4f,0X00);
+			count++;
+		}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -96,26 +103,57 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    look=0;
     /* USER CODE BEGIN 3 */
-		count =1;
-		 		while(count <=8 )
+		if(HAL_GPIO_ReadPin (viewer_GPIO_Port ,viewer_Pin )==0)
 		{
-			RGB_LED_Write_24Bits(0x4f,0X00,0X00);
-			count++;
+			HAL_Delay (50);
+			if(HAL_GPIO_ReadPin (viewer_GPIO_Port ,viewer_Pin )==1)
+			{
+				if(i%2==1)
+				{
+					count =1;
+				while(count <=8 )
+				{
+						RGB_LED_Write_24Bits(0x4f,0X00,0X00);
+						count++;
+				}
+			 }
+				else
+				{
+					count=1;
+				while(count <=8 )
+				{
+						RGB_LED_Write_24Bits(0x00,0X4f,0X00);
+						count++;
+				}
+				}
+				i++;
+			}
 		}
-		HAL_Delay (1000);
-		count=1;
-		 		while(count <=8 )
-		{
-			RGB_LED_Write_24Bits(0x00,0X00,0X00);
-			count++;
-		}
-		HAL_Delay (1000);
+		
+		
+//		if(HAL_GPIO_ReadPin (viewer_GPIO_Port ,viewer_Pin )==0)
+//			
+//		{
+//			HAL_Delay(100);
+//			
+//				count =1;
+//		 		while(count <=8 )
+//				{
+//						RGB_LED_Write_24Bits(0x4f,0X00,0X00);
+//						count++;
+//				}
+//				while(1)
+//				{
+//		
+//				}
+	  }
+	
 //		
   }
   /* USER CODE END 3 */
-}
+
 
 /**
   * @brief System Clock Configuration

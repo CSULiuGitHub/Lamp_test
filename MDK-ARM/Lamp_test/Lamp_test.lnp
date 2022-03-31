@@ -1,4 +1,4 @@
---cpu Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 "lamp_test\startup_stm32f407xx.o"
 "lamp_test\lamp.o"
 "lamp_test\main.o"
@@ -23,6 +23,6 @@
 "lamp_test\stm32f4xx_hal_exti.o"
 "lamp_test\system_stm32f4xx.o"
 --strict --scatter "Lamp_test\Lamp_test.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "Lamp_test.map" -o Lamp_test\Lamp_test.axf

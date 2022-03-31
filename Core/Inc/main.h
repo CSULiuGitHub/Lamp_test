@@ -60,6 +60,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Lamp_Pin GPIO_PIN_10
 #define Lamp_GPIO_Port GPIOE
+#define viewer_Pin GPIO_PIN_10
+#define viewer_GPIO_Port GPIOD
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
